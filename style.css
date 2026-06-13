@@ -76,15 +76,12 @@ header span {
     max-width: 650px;
 }
 
-/* Container dyal Tsawira / 3D */
 .image-container {
     position: relative;
     width: 100%;
     max-width: 500px;
     margin-bottom: 30px;
-    background: var(--bg-card);
     border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
