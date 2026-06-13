@@ -42,10 +42,10 @@ if (countdownEl) {
     setInterval(() => {
         const now = new Date();
         const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime();
-        const distance = endOfDay - now.getTime();
+        let distance = endOfDay - now.getTime();
+        if (distance < 0) distance = 0;
         const h = String(Math.floor(distance / 3600000)).padStart(2, '0');
         const m = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
         const s = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
         countdownEl.innerHTML = `${h}:${m}:${s}`;
     }, 1000);
-}
