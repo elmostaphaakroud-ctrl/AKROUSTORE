@@ -368,6 +368,7 @@ footer {
     .features { flex-direction: column; align-items: center; }
     .feature-box { width: 100%; }
 }/* === SLIDER === */
+/* === SLIDER === */
 .slider-wrapper {
     position: relative;
     width: 100%;
