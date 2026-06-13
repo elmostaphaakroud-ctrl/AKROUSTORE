@@ -28,7 +28,7 @@ if (countdownEl) {
         countdownEl.innerHTML = `${h}:${m}:${s}`;
         
     }, 1000);
-}// === SLIDER ===
+// === SLIDER ===
 const track = document.getElementById('sliderTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -38,6 +38,7 @@ if (track) {
     const slides = track.querySelectorAll('.slide');
     let current = 0;
 
+    // Sni3 dots
     slides.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
@@ -56,8 +57,10 @@ if (track) {
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
 
+    // Auto-play kol 3 thwani
     setInterval(() => goTo(current + 1), 3000);
 
+    // Swipe support (mobile)
     let startX = 0;
     track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
     track.addEventListener('touchend', e => {
@@ -65,4 +68,17 @@ if (track) {
         if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
     });
 }
-Copy-paste nichan f nhayt script.
+
+// === COUNTDOWN (code dyalek) ===
+const countdownEl = document.getElementById('countdown');
+if (countdownEl) {
+    setInterval(() => {
+        const now = new Date();
+        const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime();
+        const distance = endOfDay - now.getTime();
+        const h = String(Math.floor(distance / 3600000)).padStart(2, '0');
+        const m = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+        const s = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+        countdownEl.innerHTML = `${h}:${m}:${s}`;
+    }, 1000);
+}
